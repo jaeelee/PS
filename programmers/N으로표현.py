@@ -2,7 +2,9 @@ from itertools import product
 
 """
     DP를 이용하는 문제
-    숫자 N과 number가 주어질 때, N과 사칙연산만 사용해서 표현 할 수 있는 방법 중 N 사용횟수의 최솟값을 return 하도록 solution 함수를 작성
+    
+    숫자 N과 number가 주어질 때, N과 사칙연산만 사용해서 number를 표현 할 수 있는 방법 중 
+    N 사용횟수의 최솟값을 return 하도록 solution 함수를 작성
 
     DP[1] => N을 1번 사용한 표현방법
     DP[2] => N을 2번 사용한 표현방법
