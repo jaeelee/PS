@@ -21,28 +21,28 @@
 using namespace std;
 
 long long answer = 0;
-vector<vector<int>> map;
+vector< vector<int> > maps;
 vector<long long> weight;
 vector<int> visited;
 
 void dfs(int x, int top)
 {
-	for (int i : map[x])
+	for (int i : maps[x])
 	{
 		if (i == top) continue; // 위치 중요!
-		if (map[i].size() != 1) dfs(i, x); // 위치 중요!
+		if (maps[i].size() != 1) dfs(i, x); // 위치 중요!
 		answer += abs(weight[i]);
 		weight[x] += weight[i];
 		weight[i] = 0;
 	}
 }
 
-long long solution(vector<int> a, vector<vector<int>> edges) {
+long long solution(vector<int> a, vector< vector<int> > edges) {
 	int i;
 	int sum;
 
 	visited.assign(a.size(), 0);
-	map.assign(a.size(), vector<int> (0));
+	maps.assign(a.size(), vector<int> (0));
 	for (int i : a) weight.push_back((long long)i);
 	sum = 0;
 	i = -1;
@@ -54,10 +54,11 @@ long long solution(vector<int> a, vector<vector<int>> edges) {
 	i = -1;
 	while (++i < edges.size())
 	{
-		map[edges[i][0]].push_back(edges[i][1]);
-		map[edges[i][1]].push_back(edges[i][0]);
+		maps[edges[i][0]].push_back(edges[i][1]);
+		maps[edges[i][1]].push_back(edges[i][0]);
 	}
 
 	dfs(0, -1);
 	return answer;
 }
+
