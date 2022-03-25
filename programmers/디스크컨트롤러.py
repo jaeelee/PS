@@ -10,15 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
+
+# 작업 대기시간의 합이 최소가 되어야함
+# => 현재 처리 가능한 요청 중 작업시간이 가장 짧은 것 부터 우선 처리
+
 import math
 from queue import PriorityQueue
-
 
 def solution(jobs):
     total = 0
     jobs_cnt = len(jobs)
     
-    # 요청 순으로 정렬
+    # 요청 순, 작업 소요시간 순으로 정렬
     jobs.sort(key=lambda x:(x[0], x[1]))
     
     que = PriorityQueue()
