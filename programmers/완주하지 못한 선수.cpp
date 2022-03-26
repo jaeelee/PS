@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   완주사지 못한 선수.cpp                                  :+:      :+:    :+:   */
+/*   완주하지 못한 선수.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeelee <jaeelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -34,3 +34,20 @@ string solution(vector<string> participant, vector<string> completion) {
     }
     return answer;
 }
+
+/* 수정 답안
+string solution(vector<string> participant, vector<string> completion) {
+    string answer = "";
+    
+    sort(participant.begin(), participant.end());
+    sort(completion.begin(), completion.end());
+    
+    for (int i = 0; i < completion.size(); i++)
+    {
+        if (participant[i].compare(completion[i]) != 0)        
+            return participant[i];
+    }
+    return participant[completion.size()];
+}
+
+*/
