@@ -1,0 +1,5 @@
+-- 서브쿼리 이용
+SELECT DISTINCT CART_ID
+FROM CART_PRODUCTS
+WHERE CART_ID in (select CART_ID FROM CART_PRODUCTS where NAME ="Milk") and NAME = "Yogurt"
+order by CART_ID
